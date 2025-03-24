@@ -15,7 +15,8 @@ FROM amazoncorretto:21
 WORKDIR /app
 
 # Copia o JAR gerado na etapa anterior
-COPY --from=builder /app/target/*.jar minha-api.jar
+# Como só haverá um arquivo finalizando com .jar, podemos escrever '/app/target/*.jar'
+COPY --from=builder /app/target/*.jar ./minha-api.jar
 
 # Expõe a porta 8080
 EXPOSE 8080
