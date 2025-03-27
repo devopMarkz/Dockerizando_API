@@ -1,8 +1,17 @@
 package io.github.devopMarkz.dockerizando;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Convidado {
 
+    @Column
     private String nome;
+
+    @Id
+    @Column
     private String cpf;
 
     public Convidado() {

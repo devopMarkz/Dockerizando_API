@@ -1,5 +1,6 @@
 package io.github.devopMarkz.dockerizando;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +14,12 @@ import java.util.List;
 @CrossOrigin("*")
 public class ConvidadosController {
 
+    @Autowired
+    private ConvidadosRepository convidadosRepository;
+
     @GetMapping
     public List<Convidado> getConvidados() {
-        List<Convidado> convidados = new ArrayList<>();
-        convidados.add(new Convidado("Marcos", "18274635263"));
-        convidados.add(new Convidado("Vitor", "82736459657"));
-        return convidados;
+        return convidadosRepository.findAll();
     }
 
 }
